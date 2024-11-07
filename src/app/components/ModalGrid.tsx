@@ -32,7 +32,7 @@ const ModalView: React.FC<ModalViewProps> = ({ photo, onClose }) => {
         <Image
           src={photo.urls.regular}
           alt={photo.description || "Unsplash Image"}
-          className="w-full h-auto cursor-pointer"
+          className="w-full h-auto cursor-pointer rounded"
           width={photo.width}
           height={photo.height}
         />
