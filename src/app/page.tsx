@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import DarkModeToggle from "@/app/components/DarkModeToggle";
 import ImageGrid from "@/app/components/ImageGrid";
 import ModalView from "@/app/components/ModalGrid";
 import { useRecentPhotos } from "@/app/hooks/useRecentPhotos";
 import { Photo } from "@/app/types/photo";
+import { useState } from "react";
 
 const HomePage: React.FC = () => {
   const { photos, loading, error } = useRecentPhotos();
@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen p-4 dark:bg-gray-900 dark:text-white">
+    <div className="min-h-screen p-4 bg-gray-200 dark:bg-gray-950 dark:text-white transition-colors duration-300 ease-in-out">
       <div className="container mx-auto px-4">
         <div className="flex justify-end mb-4">
           <DarkModeToggle />

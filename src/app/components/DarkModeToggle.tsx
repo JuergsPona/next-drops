@@ -22,7 +22,7 @@ const DarkModeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleDarkMode}
-      className="p-2 bg-gray-200 dark:bg-gray-800 rounded"
+      className=" bg-gray-400 dark:bg-gray-800 rounded-full custom-icon-button"
     >
       {isDarkMode ? "☀️" : "🌙"}
     </button>

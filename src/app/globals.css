@@ -19,3 +19,17 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+  .custom-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+  }
+
+  .custom-icon-button {
+    height: 36px;
+    width: 36px;
+  }
+}

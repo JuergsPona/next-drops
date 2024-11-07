@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Photo } from "@/app/types/photo";
+import Image from "next/image";
 
 interface ImageGridProps {
   photos: Photo[];
@@ -14,9 +14,9 @@ const ImageGrid: React.FC<ImageGridProps> = ({ photos, onSelectPhoto }) => {
           <Image
             src={photo.urls.small}
             alt={photo.description || "Unsplash Image"}
-            className="cursor-pointer"
-            width={400}
-            height={400}
+            className="cursor-pointer rounded"
+            width={photo.width}
+            height={photo.height}
           />
         </div>
       ))}
