@@ -1,9 +1,11 @@
+"use client";
+
 import { useState } from "react";
-import DarkModeToggle from "./components/DarkModeToggle";
-import ImageGrid from "./components/ImageGrid";
-import ModalView from "./components/ModalGrid";
-import { useRecentPhotos } from "./hooks/useRecentPhotos";
-import { Photo } from "./types/photo";
+import DarkModeToggle from "@/app/components/DarkModeToggle";
+import ImageGrid from "@/app/components/ImageGrid";
+import ModalView from "@/app/components/ModalGrid";
+import { useRecentPhotos } from "@/app/hooks/useRecentPhotos";
+import { Photo } from "@/app/types/photo";
 
 const HomePage: React.FC = () => {
   const { photos, loading, error } = useRecentPhotos();
@@ -19,17 +21,20 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen p-4 dark:bg-gray-900 dark:text-white">
-      <div className="flex justify-end mb-4">
-        <DarkModeToggle />
+      <div className="container mx-auto px-4">
+        <div className="flex justify-end mb-4">
+          <DarkModeToggle />
+        </div>
+
+        {loading && <p>Loading...</p>}
+        {error && <p className="text-red-600">{error}</p>}
+        {typeof window !== "undefined" && photos && (
+          <ImageGrid photos={photos} onSelectPhoto={handleSelectPhoto} />
+        )}
+        {selectedPhoto && (
+          <ModalView photo={selectedPhoto} onClose={handleCloseModal} />
+        )}
       </div>
-      {loading && <p>Loading...</p>}
-      {error && <p className="text-red-600">{error}</p>}
-      {photos && (
-        <ImageGrid photos={photos} onSelectPhoto={handleSelectPhoto} />
-      )}
-      {selectedPhoto && (
-        <ModalView photo={selectedPhoto} onClose={handleCloseModal} />
-      )}
     </div>
   );
 };

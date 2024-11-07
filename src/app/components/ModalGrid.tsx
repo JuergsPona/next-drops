@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { Photo } from "../types/photo";
+import { Photo } from "@/app/types/photo";
 
 interface ModalViewProps {
   photo: Photo;
@@ -15,8 +13,9 @@ const ModalView: React.FC<ModalViewProps> = ({ photo, onClose }) => {
         <Image
           src={photo.urls.small}
           alt={photo.description || "Unsplash Image"}
-          layout="responsive"
           className="w-full h-auto cursor-pointer"
+          width={1024}
+          height={1024}
         />
         <button
           onClick={onClose}

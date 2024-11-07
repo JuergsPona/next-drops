@@ -4,11 +4,9 @@
  * Created by Juergen Pona
  */
 
-"use client";
-
-import { fetchRecentPhotos } from "@/services/unsplashService";
+import { fetchRecentPhotos } from "@/app/services/unsplashService";
+import { Photo } from "@/app/types/photo";
 import { useEffect, useState } from "react";
-import { Photo } from "../types/photo";
 
 export const useRecentPhotos = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
